@@ -1,0 +1,43 @@
+package org.example.exercicio;
+
+public class Diretor extends Funcionario implements Contratacao{
+    private final double PREMIO= 1.25;
+
+    @Override
+    public void admitir(Funcionario funcionario) {
+        System.out.println("Admitir:" + funcionario);
+    }
+
+    @Override
+    public void demitir(Funcionario funcionario) {
+        System.out.println("Demitir"+ funcionario);
+    }
+
+    public Diretor(String nome, String dataDeNascimento, Sexo sexo, Setor setor, double salarioBase) {
+        super(nome, dataDeNascimento, sexo, setor, salarioBase);
+    }
+
+    public double getPremio() {
+        return PREMIO;
+
+    }
+
+    @Override
+    public double getSalarioFinal() {
+       double resultado;
+        return super.salarioBase* this.PREMIO;
+    }
+
+    @Override
+    public String toString() {
+        return "Diretor{" +
+                "PREMIO=" + PREMIO +
+                ", nome='" + nome + '\'' +
+                ", dataDeNascimento='" + dataDeNascimento + '\'' +
+                ", sexo=" + sexo +
+                ", setor=" + setor +
+                ", salarioBase=" + salarioBase +
+                "Salario Final:" + this.getSalarioFinal()+
+                '}';
+    }
+}
