@@ -1,6 +1,6 @@
 package org.example.exercicio2;
 
-public abstract class Funcionario {
+public abstract class Funcionario implements SalarioFinal{
 
     protected String nome;
     protected String cpf;
@@ -45,4 +45,7 @@ public abstract class Funcionario {
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
     }
+
+
+
 }
