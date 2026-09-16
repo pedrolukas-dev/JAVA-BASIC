@@ -8,20 +8,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// 1. CORREÇÃO: Trocamos @Repository por @RestController
 @RestController
 @RequestMapping("/clientes")
-
 public class ClienteController {
+
     @Autowired
     private ClienteRepository repository;
+
     @GetMapping
     public List<ClienteEntity> listarTodos(){
         return repository.findAll();
     }
-    @PostMapping
-    public ResponseEntity<ClienteEntity> salvar(@RequestBody ClienteRepository cliente) {
-        repository.save(cliente);
-        return  ResponseEntity.created(null).body(cliente);
-    }
 
+    // 2. CORREÇÃO: Método POST completado!
+    @PostMapping
+    public ResponseEntity<ClienteEntity> criarCliente(@RequestBody ClienteEntity cliente) {
+
+        ClienteEntity clienteSalvo = repository.save(cliente);
+
+        // Retornamos o cliente salvo com sucesso (código 200 OK)
+        return ResponseEntity.ok(clienteSalvo);
+    }
 }
