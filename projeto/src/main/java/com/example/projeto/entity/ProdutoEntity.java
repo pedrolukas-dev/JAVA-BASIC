@@ -1,11 +1,13 @@
 package com.example.projeto.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "produtos")
@@ -19,6 +21,9 @@ public class ProdutoEntity {
     private Long id;
 
     private String nome;
-    private BigDecimal preco;
-    private Integer quantidade;
+
+    private Double preco;
+
+    private String descricao;
+
 }
